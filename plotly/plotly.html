@@ -165,14 +165,14 @@
             </div>
         </div>
     </nav>
-    <py-script>
-        import pandas as pd, numpy as np, plotly.express as px, js from js import JSON, Plotly def add_div(name): display(name, target = name) def plot(fig, name): Plotly.react(name, JSON.parse(fig)) from pyodide.http import * def test_pyscript(name): df = pd.DataFrame(np.random.rand(10000,
-        4), columns=['A', 'B', 'C', 'D']) fig = px.scatter_3d(df, x='A', y='B', z = 'C', color='D') fig_json = fig.to_json() plot(fig_json, name)
-    </py-script>
+    <py-script src="plotly.py"></py-script>
     <!-- Main Content -->
     <div class="container mt-5">
         <h1>Welcome to my Bootstrap PyScript Website</h1>
         <p>This website uses Bootstrap CSS styling and PyScript instead of JavaScript.</p>
+        <py-repl>
+            test_pyscript('chart')
+        </py-repl>
         <button py-click="test_pyscript('chart')" id="display">Click me to test PyScript!</button>
         <div id="chart"></div>
     </div>
